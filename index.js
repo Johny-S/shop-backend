@@ -66,7 +66,9 @@ app.post("/web-data", async (req, res) => {
       type: "article",
       id: queryId,
       title: "Успешная покупка",
-      input_message_content: "Поздравляем, вы приобрели товар на сумму " + totalPrice + " руб.",
+      input_message_content: {
+        message_text: "Поздравляем, вы приобрели товар на сумму " + totalPrice + " руб.",
+      },
     });
     return res.status(200).json();
   } catch (error) {
@@ -74,7 +76,7 @@ app.post("/web-data", async (req, res) => {
       type: "article",
       id: queryId,
       title: "Не удалось приобрести товар",
-      input_message_content: "Не удалось приобрести товар",
+      input_message_content: { message_text: "Не удалось приобрести товар" },
     });
     return res.status(500).json();
   }
