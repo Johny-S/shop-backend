@@ -60,8 +60,8 @@ bot.on("message", async (msg) => {
 });
 
 app.post("/web-data", async (req, res) => {
-  const { queryId, products = [], totalPrice } = req.body;
-  res.json({ text: "Got a POST request" });
+  const { queryId, products = [], totalPrice } = await req.body;
+  res.json({ req });
   // console.log({ req });
   // try {
   //   await bot.answerWebAppQuery(queryId, {
