@@ -73,7 +73,7 @@ app.post("/web-data", async (req, res) => {
           .join(", ")}`,
       },
     });
-    return res.status(200).json({});
+    return res.status(200).json({...req.body});
   } catch (e) {
     return res.status(500).json({});
   }
